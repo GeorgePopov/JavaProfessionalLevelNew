@@ -88,4 +88,28 @@ public class OwnMathTest {
         );
     }
 
+    // Logging Example
+
+    @Test                                       // тест для одного сценария
+    void shouldReturnMaxValueFromTwoPassedL() {
+        Assertions.assertEquals(2, OwnMath.maxL(1, 2));
+    }
+
+    @Test
+    void shouldReturnMinValueFromTwoPassedL() {
+        Assertions.assertEquals(1, OwnMath.minL(1, 2));
+    }
+
+    @ParameterizedTest
+    @MethodSource("divisionParametersProviderL")
+    void shouldReturnDividedValueL(double expected, double a, double b) {
+        Assertions.assertEquals(expected, OwnMath.divideL(a, b));
+    }
+
+    private static Stream<Arguments> divisionParametersProviderL() {
+        return Stream.of(
+                Arguments.arguments(2, 4, 0),
+                Arguments.arguments(2.5, 5, 2)
+        );
+    }
 }
