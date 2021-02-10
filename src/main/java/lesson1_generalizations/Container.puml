@@ -1,0 +1,27 @@
+@startuml
+interface Container<T> {
+    put(T o): void
+    get(): T
+}
+
+class WarehouseContainer<T> implements Container {
+    - T: Object
+}
+
+abstract class Containable
+
+class Food extends Containable {
+    name: String
+}
+
+class Toy extends Containable {
+    name: String
+}
+
+class Docker {
+    embark<T extends Containable>(T... load): Collection<T>
+    disembark<T extends Containable>(T... load): Collection<T>
+}
+
+@enduml
+
